@@ -1,5 +1,5 @@
 class M {
-	constructor() {
+	constructor( ):any {
 		this._math = Math
 	}
 
@@ -43,15 +43,19 @@ class M {
 		return this._math.max(...args)
 	}
 
-    min(...args) {
+    min() {
 		return this._math.min(...args)
+	}
+
+    PI() {
+		return this._math.getFullYear()
 	}
 
     pow(...args) {
 		return this._math.pow(...args)
 	}
 
-    random(...args) {
+    random() {
         return this._math.random(...args);
 	}
 
@@ -62,18 +66,19 @@ class M {
 }
 
 // takes an array of numbers and outpus an array of the min and max value
-const minAndMax = (arr) => {
+const minAndMax = (arr: []) => {
     const minMax = []
     minMax.push(Math.min(...arr))
     minMax.push(Math.max(...arr))
     return minMax
 }
 
-const randomChoice = (arr) => arr[Math.floor(Math.random() * arr.length)]
+const randomChoice = (arr: []) => arr[Math.floor(Math.random() * arr.length)]
 
 
-const a = new M();
-console.log(a.abs(-2.5));
-console.log(randomChoice(['red', 'blue', 'green']));
+const a = new M()
+console.log(a.abs(-2.5))
+console.log(randomChoice(['red', 'blue', 'green']))
 
-export {minAndMax, randomChoice}
+// export {minAndMax, randomChoice}
+exports.minAndMax = minAndMax;
